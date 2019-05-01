@@ -3,8 +3,6 @@ function flipCard (element) {
     var elementId = $(element).attr("id");
     var card = $(element).data("card");
 
-    // to do: determine which ones have been picked as previous cards that match will flip over when they shouldn't.
-
     // determines which cards dont match and flips them over.
     $("#" + elementId + "-back").addClass("selected");
 
@@ -21,12 +19,14 @@ function flipCard (element) {
             // checks if the card data matches
             // to do: figure out a way to freeze cards that match. 
             console.log("a match.");
+            // find elemnts that are selected, find class and replace with correct class. 
+            $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
         }else{
             // means that the cards are not a match.
             // to do: turn the cards back over. 
             console.log("not a match.");
             setTimeout(function() {
-                $(".selected").show();
+                $(".selected").show().removeClass("selected");
             }, 2000);
         } 
         // removes the card data stored.
@@ -39,8 +39,10 @@ function flipCard (element) {
 
 // runs on load.
 $(document).ready(function() {
-    $(".gameCard").click(function() {
-        flipCard($(this));
+    $(".active").click(function() {
+        if($(this).hasClass("active")){
+            flipCard($(this));
+        }
     });
     // resets the session storage data. 
     sessionStorage.removeItem("firstChoice");

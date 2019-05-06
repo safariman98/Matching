@@ -1,3 +1,18 @@
+// countdown. 
+var timeLeft = 30;
+var timerId = setInterval(countdown, 1000);
+function countdown() {
+    var elem = document.getElementById('timer');
+    if (timeLeft == 0) {
+    clearTimeout(timerId);
+    // function that ends the game.
+    $("#myModal").show();
+    } else {
+    elem.innerHTML = timeLeft + ' seconds remaining';
+    timeLeft--;
+    }
+}
+
 // flips the cards.
 function flipCard (element) {
     var elementId = $(element).attr("id");
@@ -17,13 +32,11 @@ function flipCard (element) {
         var secondChoice = card;
         if(firstChoice == secondChoice){
             // checks if the card data matches
-            // to do: figure out a way to freeze cards that match. 
             console.log("a match.");
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
         }else{
             // means that the cards are not a match.
-            // to do: turn the cards back over. 
             console.log("not a match.");
             setTimeout(function() {
                 $(".selected").show().removeClass("selected");

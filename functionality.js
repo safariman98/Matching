@@ -40,7 +40,7 @@ function flipCard (element) {
             console.log("not a match.");
             setTimeout(function() {
                 $(".selected").show().removeClass("selected");
-            }, 2000);
+            }, 250);
         } 
         // removes the card data stored.
         sessionStorage.removeItem("firstChoice");

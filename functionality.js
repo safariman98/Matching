@@ -33,6 +33,7 @@ function flipCard (element) {
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
+            GameScore = GameScore += 1000
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
         }else{
@@ -48,6 +49,32 @@ function flipCard (element) {
         // sets the card data.
         sessionStorage.setItem("firstChoice",card);
     }
+}
+
+// Life Bar  (Unfinished)
+var lifebar;
+var numlives = 0;
+
+function init(){
+	output = document.getElementById('output');
+	output.innerHTML = level;
+	
+	lifebar = document.getElementById('lifebar');
+	for(var i=0; i<3; i++) addLife();
+	
+}
+
+// Life Bar  (Unfinished)
+var lifebar;
+var numlives = 0;
+
+function init(){
+	output = document.getElementById('output');
+	output.innerHTML = level;
+	
+	lifebar = document.getElementById('lifebar');
+	for(var i=0; i<3; i++) addLife();
+	
 }
 
 // runs on load.

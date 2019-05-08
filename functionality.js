@@ -50,6 +50,13 @@ function flipCard (element) {
     }
 }
 
+// Score Display  Kingston 06/05
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20);
+}
+
 // runs on load.
 $(document).ready(function() {
     $(".active").click(function() {

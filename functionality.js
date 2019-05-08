@@ -1,3 +1,6 @@
+// Score Kingston 06/05
+var GameScore = 0; 
+
 // countdown. 
 var timeLeft = 30;
 var timerId = setInterval(countdown, 1000);
@@ -33,6 +36,7 @@ function flipCard (element) {
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
+            GameScore = GameScore += 1000
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
         }else{
@@ -49,6 +53,14 @@ function flipCard (element) {
         sessionStorage.setItem("firstChoice",card);
     }
 }
+
+// Score Display  Kingston 06/05
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20);
+}
+
 
 // runs on load.
 $(document).ready(function() {

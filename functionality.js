@@ -1,3 +1,6 @@
+// Global variables
+var lives = 3;
+
 // countdown. 
 var timeLeft = 30;
 var timerId = setInterval(countdown, 1000);
@@ -33,12 +36,24 @@ function flipCard (element) {
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
-            GameScore = GameScore += 1000
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
         }else{
             // means that the cards are not a match.
             console.log("not a match.");
+            // Update the lives.
+            var check = document.getElementById('Life');
+            // remove a life.
+            lives -1;
+            // updates the html.
+            lives--;
+            console.log(lives);
+            check.innerHTML = 'your lives are  ' + lives;
+            // run out of lives.
+            if(lives <= 0){
+                // run modal.
+                $("#myModal").show();
+            }
             setTimeout(function() {
                 $(".selected").show().removeClass("selected");
             }, 250);

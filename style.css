@@ -10,6 +10,13 @@
     font-size: xx-large;
 }
 
+/* The Game lives */
+#Life {
+    text-align: center;
+    padding: 50px;
+    font-size: xx-large;
+}
+
 /* body */
 body {
     height: 100vh;

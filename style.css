@@ -17,6 +17,13 @@
     font-size: xx-large;
 }
 
+/* The Game Score */
+#Score {
+	text-align: center-left;
+	padding: 40px;
+	font-size: xx-large;
+}
+
 /* body */
 body {
     height: 100vh;

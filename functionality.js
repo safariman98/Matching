@@ -1,5 +1,7 @@
 // Global variables
 var lives = 3;
+var score = 0;
+var scoreText;
 
 // countdown. 
 var timeLeft = 30;
@@ -36,6 +38,12 @@ function flipCard (element) {
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
+			// Update the score 
+			score += 10;
+			scoreText.setText('Points: '+score);
+			if (score == firstChoice+secondChoice) {
+				alert("It's a Match!")
+			}
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
         }else{

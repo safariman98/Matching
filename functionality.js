@@ -118,6 +118,8 @@ function init(){
 
 // runs on load.
 $(document).ready(function() {
+    // intro.
+    alert('Having trouble falling asleep? Why count sheep when you can count cards, the aim is simple. Match all the cards and youll get your precious dreams. There is 1 catch. Dont match the black cards, or its no dreams for you. There is help along the way, match the red cards and youll get additional time, match the green cards and your lives will increase, match the blue cards and your overall score will increase. DO NOT MATCH THE BLACK CARDS.');
     $(".active").click(function() {
         if($(this).hasClass("active")){
             flipCard($(this));

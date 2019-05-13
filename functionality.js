@@ -12,7 +12,7 @@ function countdown() {
     // function that ends the game.
     $("#gameOverModal").show();
     } else {
-    elem.innerHTML = timeLeft + ' seconds remaining';
+    elem.innerHTML = timeLeft + ' second/s remaining';
     timeLeft--;
     }
 }
@@ -49,7 +49,12 @@ function flipCard (element) {
             if(card == "lifes") {
                 // add a life
                 lives++;
-                check.innerHTML = 'your lives are  ' + lives;
+                check.innerHTML = 'lives are  ' + lives;
+            }
+            // check if card data = reaper.
+            if(card == "reaper") {
+                // run game over modal.
+                $("#gameOverModal").show();
             }
             // check if card data = score.
 
@@ -57,7 +62,7 @@ function flipCard (element) {
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
             // checks if game complete
-            if(correct == 6){
+            if(correct == 5){
                 // run modal.
                 $("#gameCompleteModal").show();
             }
@@ -67,10 +72,10 @@ function flipCard (element) {
             // remove a life.
             lives--;
             // Update the lives html.
-            check.innerHTML = 'your lives are  ' + lives;
+            check.innerHTML = 'lives are  ' + lives;
             // run out of lives.
             if(lives <= 0){
-                // run modal.
+                // run game over modal.
                 $("#gameOverModal").show();
             }
             setTimeout(function() {
@@ -85,7 +90,7 @@ function flipCard (element) {
     }
 }
 
-// Life Bar  (Unfinished)
+// Life Bar  (Unfinished) // added by kingston.
 var lifebar;
 var numlives = 0;
 
@@ -98,7 +103,7 @@ function init(){
 	
 }
 
-// Life Bar  (Unfinished)
+// Life Bar  (Unfinished) // added by kingston.
 var lifebar;
 var numlives = 0;
 

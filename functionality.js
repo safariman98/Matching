@@ -1,17 +1,17 @@
 // Global variables
 var lives = 3;
+var timeLeft = 30;
+var correct = 0;
 var score = 0;
-var scoreText;
 
 // countdown. 
-var timeLeft = 30;
 var timerId = setInterval(countdown, 1000);
 function countdown() {
     var elem = document.getElementById('timer');
     if (timeLeft == 0) {
     clearTimeout(timerId);
     // function that ends the game.
-    $("#myModal").show();
+    $("#gameOverModal").show();
     } else {
     elem.innerHTML = timeLeft + ' seconds remaining';
     timeLeft--;
@@ -35,32 +35,52 @@ function flipCard (element) {
     if(sessionStorage.getItem("firstChoice") != null){
         var firstChoice = sessionStorage.getItem("firstChoice");
         var secondChoice = card;
+        var check = document.getElementById('Life');
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
-			// Update the score 
-			score += 10;
-			scoreText.setText('Points: '+score);
-			if (score == firstChoice+secondChoice) {
-				alert("It's a Match!")
-			}
+            correct++;
+            console.log(correct);
+            // check if card data = time.
+            if(card == "time") {
+                // add time
+                timeLeft = timeLeft + 30;
+                score+= 30;
+                check.innerHTML = 'Points: ' + score; 
+            }
+            // check if card data = lifes.
+            if(card == "lifes") {
+                // add a life
+                lives++;
+                check.innerHTML = 'your lives are  ' + lives;
+                
+            }
+            // check if card data = score.
+            if (card == "score") {
+                // add points
+                score+= 30;
+                check.innerHTML = 'Points: ' + score; 
+            }
+
+
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
+            // checks if game complete
+            if(correct == 6){
+                // run modal.
+                $("#gameCompleteModal").show();
+            }
         }else{
             // means that the cards are not a match.
             console.log("not a match.");
-            // Update the lives.
-            var check = document.getElementById('Life');
             // remove a life.
-            lives -1;
-            // updates the html.
             lives--;
-            console.log(lives);
+            // Update the lives html.
             check.innerHTML = 'your lives are  ' + lives;
             // run out of lives.
             if(lives <= 0){
                 // run modal.
-                $("#myModal").show();
+                $("#gameOverModal").show();
             }
             setTimeout(function() {
                 $(".selected").show().removeClass("selected");
@@ -110,4 +130,3 @@ $(document).ready(function() {
     // resets the session storage data. 
     sessionStorage.removeItem("firstChoice");
 });
-

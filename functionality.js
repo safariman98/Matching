@@ -4,6 +4,8 @@ var timeLeft = 30;
 var correct = 0;
 var score = 0;
 
+
+
 // countdown. 
 var timerId = setInterval(countdown, 1000);
 function countdown() {
@@ -63,8 +65,7 @@ function flipCard (element) {
                 // run game over modal.
                 $("#gameOverModal").show();
             }
-            // check if card data = score.
-
+         
 
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");

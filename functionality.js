@@ -36,11 +36,14 @@ function flipCard (element) {
         var firstChoice = sessionStorage.getItem("firstChoice");
         var secondChoice = card;
         var check = document.getElementById('Life');
+	var point = document.getElementById('score');
         // kingston you need to add a var like^ e.g. // var point = document.getElementById('score');
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
             correct++;
+	    score+ 30
+	    point.innerHTML = 'Points: ' + score; 
             // kingston you can also add a general 10 point everytime a pair is correct e.g. score = score + 10;
             console.log(correct);
             // check if card data = time.
@@ -54,13 +57,12 @@ function flipCard (element) {
                 lives++;
                 check.innerHTML = 'lives are  ' + lives;
             }
-            /*check if card data = score. 
+            // check if card data = score. 
             if (card == "score") {
                 // add points
-                score+= 30; // should be score = score + 30;
-                //check.innerHTML = 'Points: ' + score; 
-                // should be the var you created before ^ "point" not "check".
-            }*/
+                score + 30; 
+                point.innerHTML = 'Points: ' + score; 
+            }
 
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");

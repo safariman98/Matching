@@ -13,7 +13,7 @@ function countdown() {
     // function that ends the game.
     $("#gameOverModal").show();
     } else {
-    elem.innerHTML = timeLeft + ' seconds remaining';
+    elem.innerHTML = timeLeft + ' second/s remaining';
     timeLeft--;
     }
 }
@@ -45,15 +45,12 @@ function flipCard (element) {
             if(card == "time") {
                 // add time
                 timeLeft = timeLeft + 30;
-                score+= 30;
-                check.innerHTML = 'Points: ' + score; 
             }
             // check if card data = lifes.
             if(card == "lifes") {
                 // add a life
                 lives++;
-                check.innerHTML = 'your lives are  ' + lives;
-                
+                check.innerHTML = 'lives are  ' + lives;
             }
             // check if card data = score.
             if (card == "score") {
@@ -61,12 +58,18 @@ function flipCard (element) {
                 score+= 30;
                 check.innerHTML = 'Points: ' + score; 
             }
+            // check if card data = reaper.
+            if(card == "reaper") {
+                // run game over modal.
+                $("#gameOverModal").show();
+            }
+            // check if card data = score.
 
 
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
             // checks if game complete
-            if(correct == 6){
+            if(correct == 5){
                 // run modal.
                 $("#gameCompleteModal").show();
             }
@@ -76,10 +79,10 @@ function flipCard (element) {
             // remove a life.
             lives--;
             // Update the lives html.
-            check.innerHTML = 'your lives are  ' + lives;
+            check.innerHTML = 'lives are  ' + lives;
             // run out of lives.
             if(lives <= 0){
-                // run modal.
+                // run game over modal.
                 $("#gameOverModal").show();
             }
             setTimeout(function() {
@@ -94,7 +97,7 @@ function flipCard (element) {
     }
 }
 
-// Life Bar  (Unfinished)
+// Life Bar  (Unfinished) // added by kingston.
 var lifebar;
 var numlives = 0;
 
@@ -107,7 +110,7 @@ function init(){
 	
 }
 
-// Life Bar  (Unfinished)
+// Life Bar  (Unfinished) // added by kingston.
 var lifebar;
 var numlives = 0;
 
@@ -122,6 +125,8 @@ function init(){
 
 // runs on load.
 $(document).ready(function() {
+    // intro.
+    alert('Having trouble falling asleep? Why count sheep when you can count cards, the aim is simple. Match all the cards and youll get your precious dreams. There is 1 catch. Dont match the black cards, or its no dreams for you. There is help along the way, match the red cards and youll get additional time, match the green cards and your lives will increase, match the blue cards and your overall score will increase. DO NOT MATCH THE BLACK CARDS.');
     $(".active").click(function() {
         if($(this).hasClass("active")){
             flipCard($(this));

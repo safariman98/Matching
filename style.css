@@ -17,6 +17,8 @@
     font-size: xx-large;
 }
 
+/* Kingston the score needs css or it wont display copy #Life and change it to #score^ */
+
 /* body */
 body {
     height: 100vh;

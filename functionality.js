@@ -51,13 +51,7 @@ function flipCard (element) {
                 lives++;
                 check.innerHTML = 'lives are  ' + lives;
             }
-            // check if card data = reaper.
-            if(card == "reaper") {
-                // run game over modal.
-                $("#gameOverModal").show();
-            }
             // check if card data = score.
-
 
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
@@ -65,6 +59,11 @@ function flipCard (element) {
             if(correct == 5){
                 // run modal.
                 $("#gameCompleteModal").show();
+            }
+            // check if card data = reaper.
+            if(card == "reaper") {
+                // run game over modal.
+                $("#gameOverModal").show();
             }
         }else{
             // means that the cards are not a match.

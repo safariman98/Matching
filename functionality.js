@@ -55,15 +55,15 @@ function flipCard (element) {
 
             // find elemnts that are selected, find class and replace with correct class. 
             $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
-            // checks if game complete
-            if(correct == 5){
-                // run modal.
-                $("#gameCompleteModal").show();
-            }
             // check if card data = reaper.
             if(card == "reaper") {
                 // run game over modal.
                 $("#gameOverModal").show();
+            }
+            // checks if game complete
+            if(correct == 5 && card != "reaper"){
+                // run modal.
+                $("#gameCompleteModal").show();
             }
         }else{
             // means that the cards are not a match.

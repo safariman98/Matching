@@ -17,7 +17,12 @@
     font-size: xx-large;
 }
 
-/* Kingston the score needs css or it wont display copy #Life and change it to #score^ */
+/* The Game score added by Kingston 14/05 */
+#score {
+    text-align: left;
+    padding: 50px;
+    font-size: xx-large;
+}
 
 /* body */
 body {

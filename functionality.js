@@ -4,8 +4,6 @@ var timeLeft = 30;
 var correct = 0;
 var score = 0;
 
-
-
 // countdown. 
 var timerId = setInterval(countdown, 1000);
 function countdown() {
@@ -38,39 +36,45 @@ function flipCard (element) {
         var firstChoice = sessionStorage.getItem("firstChoice");
         var secondChoice = card;
         var check = document.getElementById('Life');
+	    var point = document.getElementById('score');
+        // kingston you need to add a var like^ e.g. // var point = document.getElementById('score');
         if(firstChoice == secondChoice){
             // checks if the card data matches
             console.log("a match.");
             correct++;
+	        score += 10
+	        point.innerHTML = 'Points: ' + score; 
+            // kingston you can also add a general 10 point everytime a pair is correct e.g. score = score + 10;
             console.log(correct);
             // check if card data = time.
             if(card == "time") {
                 // add time
                 timeLeft = timeLeft + 30;
+               
             }
             // check if card data = lifes.
             if(card == "lifes") {
                 // add a life
                 lives++;
                 check.innerHTML = 'lives are  ' + lives;
+                
             }
-            // check if card data = score.
+            // check if card data = score. 
             if (card == "score") {
                 // add points
-                score+= 30;
-                check.innerHTML = 'Points: ' + score; 
+                score += 30; 
+                point.innerHTML = 'Points: ' + score; 
             }
+
+            // find elemnts that are selected, find class and replace with correct class. 
+            $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
             // check if card data = reaper.
             if(card == "reaper") {
                 // run game over modal.
                 $("#gameOverModal").show();
             }
-         
-
-            // find elemnts that are selected, find class and replace with correct class. 
-            $(".selected").removeClass("selected").parent().addClass("matched").removeClass("active");
             // checks if game complete
-            if(correct == 5){
+            if(correct == 5 && card != "reaper"){
                 // run modal.
                 $("#gameCompleteModal").show();
             }
@@ -98,36 +102,10 @@ function flipCard (element) {
     }
 }
 
-// Life Bar  (Unfinished) // added by kingston.
-var lifebar;
-var numlives = 0;
-
-function init(){
-	output = document.getElementById('output');
-	output.innerHTML = level;
-	
-	lifebar = document.getElementById('lifebar');
-	for(var i=0; i<3; i++) addLife();
-	
-}
-
-// Life Bar  (Unfinished) // added by kingston.
-var lifebar;
-var numlives = 0;
-
-function init(){
-	output = document.getElementById('output');
-	output.innerHTML = level;
-	
-	lifebar = document.getElementById('lifebar');
-	for(var i=0; i<3; i++) addLife();
-	
-}
-
 // runs on load.
 $(document).ready(function() {
     // intro.
-    alert('Having trouble falling asleep? Why count sheep when you can count cards, the aim is simple. Match all the cards and youll get your precious dreams. There is 1 catch. Dont match the black cards, or its no dreams for you. There is help along the way, match the red cards and youll get additional time, match the green cards and your lives will increase, match the blue cards and your overall score will increase. DO NOT MATCH THE BLACK CARDS.');
+    //alert('Having trouble falling asleep? Why count sheep when you can count cards, the aim is simple. Match all the cards and youll get your precious dreams. There is 1 catch. Dont match the black cards, or its no dreams for you. There is help along the way, match the red cards and youll get additional time, match the green cards and your lives will increase, match the blue cards and your overall score will increase. DO NOT MATCH THE BLACK CARDS.');
     $(".active").click(function() {
         if($(this).hasClass("active")){
             flipCard($(this));

@@ -78,7 +78,6 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid black;
 }
 
 /* Game cards */
@@ -86,7 +85,6 @@ body {
     width: calc(25% - 10px);
     height: calc(33.33% - 10px);
     position: relative;
-    border: 2px solid aqua;
     margin: 5px;
     transform: scale(1);
 }
@@ -105,7 +103,6 @@ body {
     padding: 20px;
     border-radius: 5px;
     background: white;
-    border: 2px solid rgb(255, 0, 119);
 }
 
 /* Images */

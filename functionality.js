@@ -42,7 +42,7 @@ function flipCard (element) {
             // checks if the card data matches
             console.log("a match.");
             correct++;
-	        score+ 30
+            score += 10
 	        point.innerHTML = 'Points: ' + score; 
             // kingston you can also add a general 10 point everytime a pair is correct e.g. score = score + 10;
             console.log(correct);
@@ -60,7 +60,7 @@ function flipCard (element) {
             // check if card data = score. 
             if (card == "score") {
                 // add points
-                score + 30; 
+                score += 30; 
                 point.innerHTML = 'Points: ' + score; 
             }
 

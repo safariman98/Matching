@@ -1,2 +1,2 @@
 # Matching
-repository for the matching game.
+The game has to be run on the browser chrome.

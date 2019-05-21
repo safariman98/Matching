@@ -42,8 +42,11 @@ function flipCard (element) {
             // checks if the card data matches
             console.log("a match.");
             correct++;
+
                 score += 10;
                 point.innerHTML = 'Points: ' + score;
+
+
             // kingston you can also add a general 10 point everytime a pair is correct e.g. score = score + 10;
             console.log(correct);
             // check if card data = time.
@@ -81,6 +84,11 @@ function flipCard (element) {
                 // decrease points 
                 score -= 10
                 point.innerHTML = 'Points: ' + score; 
+                // run modal.
+                $("#gameCompleteModal").show();
+            }
+            // checks if game complete
+            if(correct == 5 && card != "reaper"){
                 // run modal.
                 $("#gameCompleteModal").show();
             }

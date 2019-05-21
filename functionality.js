@@ -42,15 +42,15 @@ function flipCard (element) {
             // checks if the card data matches
             console.log("a match.");
             correct++;
-	        score += 10
-	        point.innerHTML = 'Points: ' + score; 
+                score += 10;
+                point.innerHTML = 'Points: ' + score;
             // kingston you can also add a general 10 point everytime a pair is correct e.g. score = score + 10;
             console.log(correct);
             // check if card data = time.
             if(card == "time") {
                 // add time
                 timeLeft = timeLeft + 30;
-               
+                
             }
             // check if card data = lifes.
             if(card == "lifes") {
@@ -72,9 +72,15 @@ function flipCard (element) {
             if(card == "reaper") {
                 // run game over modal.
                 $("#gameOverModal").show();
+                // Discard Points
+                score -= 10;
+                point.innerHTML = 'Points: ' + score;
             }
             // checks if game complete
             if(correct == 5 && card != "reaper"){
+                // decrease points 
+                score -= 10
+                point.innerHTML = 'Points: ' + score; 
                 // run modal.
                 $("#gameCompleteModal").show();
             }
@@ -104,8 +110,6 @@ function flipCard (element) {
 
 // runs on load.
 $(document).ready(function() {
-    // intro.
-    //alert('Having trouble falling asleep? Why count sheep when you can count cards, the aim is simple. Match all the cards and youll get your precious dreams. There is 1 catch. Dont match the black cards, or its no dreams for you. There is help along the way, match the red cards and youll get additional time, match the green cards and your lives will increase, match the blue cards and your overall score will increase. DO NOT MATCH THE BLACK CARDS.');
     $(".active").click(function() {
         if($(this).hasClass("active")){
             flipCard($(this));

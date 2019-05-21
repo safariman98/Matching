@@ -61,9 +61,6 @@ h1,h3 {
 /* The Game score added by Kingston 14/05 */
 #score {
     text-align: center;
-    position: absolute;
-    top: 10%;
-    transform: translateX(255%);
     padding: 50px;
     font-size: xx-large;
 }

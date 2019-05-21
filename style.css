@@ -60,7 +60,10 @@ h1,h3 {
 
 /* The Game score added by Kingston 14/05 */
 #score {
-    text-align: left;
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    transform: translateX(255%);
     padding: 50px;
     font-size: xx-large;
 }
@@ -78,7 +81,6 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid black;
 }
 
 /* Game cards */
@@ -86,7 +88,6 @@ body {
     width: calc(25% - 10px);
     height: calc(33.33% - 10px);
     position: relative;
-    border: 2px solid aqua;
     margin: 5px;
     transform: scale(1);
 }
@@ -105,7 +106,6 @@ body {
     padding: 20px;
     border-radius: 5px;
     background: white;
-    border: 2px solid rgb(255, 0, 119);
 }
 
 /* Images */
